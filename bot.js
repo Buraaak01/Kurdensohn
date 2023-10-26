@@ -20,35 +20,20 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", async (message) => {
-  isHurensohn(message) && message.reply("Du Hurensohn");
-  isUnderage(message) &&
-    message.reply(
-      "CAUTION⚠️! THIS PERSON IS UNDERAGE. DO NOT, I REPEAT, DO NOT SEND THEM UR PICTURES"
+  if(message.member.roles.cache.find((role) => role.id === "1166879584457855067")) {
+      await message.reply("Du Hurensohn");
+    }
+  
+  if(message.member.roles.cache.find((role) => role.id === "1166883388490268682")){
+    await message.reply(
+        "CAUTION⚠️! THIS PERSON IS UNDERAGE. DO NOT, I REPEAT, DO NOT SEND THEM UR PICTURES"
     );
-  isBestie(message) && message.react("♥");
+  }
+  if(message.member.roles.cache.find((role) => role.name === "bestie")){
+  await message.react("♥");
+  }
+
 });
 
-// ------------------------------ UTIL -----------------------------
-function isHurensohn(message) {
-  return message.member.roles.cache.find(
-    (role) => role.name === "Opfer von Kurdensohn"
-  )
-    ? true
-    : false;
-}
-
-function isUnderage(message) {
-  return message.member.roles.cache.find(
-    (role) => role.id === "1166883388490268682"
-  )
-    ? true
-    : false;
-}
-
-function isBestie(message) {
-  return message.member.roles.cache.find((role) => role.name === "bestie")
-    ? true
-    : false;
-}
 
 client.login(process.env.TOKEN);
