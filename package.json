@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node bot.js",
+    "build": "npm install",
     "devStart": "nodemon bot.js"
   },
   "keywords": [],
