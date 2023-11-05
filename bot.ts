@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, Partials } from "discord.js";
+import { Client, GatewayIntentBits, Message, Partials } from "discord.js";
 import "dotenv/config";
 
 const client = new Client({
@@ -36,22 +36,24 @@ let images = [
   "images/Ceto/Ceto-13.jpeg",
 ];
 
-let tarikId = "560129541465440312"
-let burakId = "366280365985234944"
+let tarikId = "560129541465440312";
+let burakId = "366280365985234944";
 
 client.on("messageCreate", (message) => {
-  if (message.member?.id === tarikId) {
-    if (get60To40Chance()) {
-      message.reply({
-        files: [
-          {
-            attachment: images[Math.floor(Math.random() * images.length)],
-          },
-        ],
-      });
-    }
+  if (
+    ((message.member?.id === tarikId && get60To40Chance()) ||
+      message.content.toLowerCase().includes("ceto")) &&
+    !messageContainsGay(message)
+  ) {
+    message.reply({
+      files: [
+        {
+          attachment: images[Math.floor(Math.random() * images.length)],
+        },
+      ],
+    });
   }
-  if (message.content.toLowerCase().includes("gay")) {
+  if (messageContainsGay(message)) {
     message.reply({
       files: [
         {
@@ -65,7 +67,10 @@ client.on("messageCreate", (message) => {
   }
 });
 
-
 function get60To40Chance(): boolean {
-  return Math.random() < 0.6
+  return Math.random() < 0.6;
+}
+
+function messageContainsGay(message: Message<boolean>): boolean {
+  return message.content.toLowerCase().includes("gay");
 }
