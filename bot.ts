@@ -21,11 +21,19 @@ client.on("ready", () => {
 });
 
 let images = [
-  "images/Ceto-1.jpeg",
-  "images/Ceto-2.jpeg",
-  "images/Ceto-3.jpeg",
-  "images/Ceto-4.jpeg",
-  "images/Ceto-5.jpeg",
+  "images/Ceto/Ceto-1.jpeg",
+  "images/Ceto/Ceto-2.jpeg",
+  "images/Ceto/Ceto-3.jpeg",
+  "images/Ceto/Ceto-4.jpeg",
+  "images/Ceto/Ceto-5.jpeg",
+  "images/Ceto/Ceto-6.jpeg",
+  "images/Ceto/Ceto-7.jpeg",
+  "images/Ceto/Ceto-8.jpeg",
+  "images/Ceto/Ceto-9.jpeg",
+  "images/Ceto/Ceto-10.jpeg",
+  "images/Ceto/Ceto-11.jpeg",
+  "images/Ceto/Ceto-12.jpeg",
+  "images/Ceto/Ceto-13.jpeg",
 ];
 
 let tarikId = "560129541465440312"
@@ -33,7 +41,7 @@ let burakId = "366280365985234944"
 
 client.on("messageCreate", (message) => {
   if (message.member?.id === tarikId) {
-    if (getFiftyFifty()) {
+    if (get60To40Chance()) {
       message.reply({
         files: [
           {
@@ -58,6 +66,6 @@ client.on("messageCreate", (message) => {
 });
 
 
-function getFiftyFifty(): boolean {
-  return Math.random() < 0.5
+function get60To40Chance(): boolean {
+  return Math.random() < 0.6
 }
