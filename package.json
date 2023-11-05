@@ -2,7 +2,7 @@
   "name": "discord-kurdensohn",
   "version": "1.0.0",
   "description": "",
-  "main": "bot.js",
+  "main": "bot.ts",
   "scripts": {
     "start": "ts-node bot.ts",
     "devStart": "nodemon --exec ts-node bot.ts"

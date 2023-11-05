@@ -1,5 +1,6 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
 import "dotenv/config";
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -14,7 +15,7 @@ const client = new Client({
 });
 
 // ------------------------------ EVENT LISTENER -----------------------------
-client.login(process.env.TOKEN);
+client.login(process.env.DISCORD_TOKEN);
 client.on("ready", () => {
   console.log("Kurdensohn ist ready");
 });
