@@ -1,5 +1,13 @@
 import { Client, GatewayIntentBits, Message, Partials } from "discord.js";
+import express, { Express, Request, Response, Application } from "express";
 import "dotenv/config";
+
+const app: Application = express();
+
+app.get("/", (req: Request, res: Response) => {
+  res.send("Ping");
+});
+app.listen(3000, () => console.log("YOOO I am ready dawg"));
 
 const client = new Client({
   intents: [
