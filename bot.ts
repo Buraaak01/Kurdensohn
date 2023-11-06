@@ -7,7 +7,7 @@ const app: Application = express();
 app.get("/", (req: Request, res: Response) => {
   res.send("Ping");
 });
-app.listen(3000, () => console.log("YOOO I am ready dawg, token is: "+ process.env.TOKEN));
+app.listen(3000, () => console.log('YOOO I am ready dawg'));
 
 const client = new Client({
   intents: [
