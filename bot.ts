@@ -21,9 +21,10 @@ const client = new Client({
     Partials.Message, // We want to receive uncached messages!
   ],
 });
+client.login(process.env.TOKEN);
 
 // ------------------------------ EVENT LISTENER -----------------------------
-client.login(process.env.DISCORD_TOKEN);
+
 client.on("ready", () => {
   console.log("Kurdensohn ist ready");
 });
